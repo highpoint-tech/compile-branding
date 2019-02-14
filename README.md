@@ -31,7 +31,21 @@ control, so add it to your `.gitignore` (or similar) file.
 
 Produces a compiled version of the branding in a local directory.
 
-### Variables 
+### Example
+
+```javascript
+const { compileBranding } = require('@highpoint/compile-branding');
+const { resolve } = require('path');
+
+compileBranding({
+  app: 'app',
+  inFile: resolve(`./src/main.scss`),
+  outDir: resolve('./dist'),
+  weblib: 'WEBLIB_H_BRNDNG'
+}).catch(({ message }) => console.error(message));
+```
+
+### Variables
 
 #### `app`
 
@@ -58,8 +72,8 @@ Example: `path.resolve('./dist')`
 The PeopleSoft web library that will be called. It needs to have the following
 functions:
 
-* IScript_GetVars
-* IScript_CompileTemplate
+- IScript_GetVars
+- IScript_CompileTemplate
 
 Example: `WEBLIB_H_BRNDNG`
 
@@ -69,6 +83,17 @@ Triggers branding compilation remotely. This is primarily used by continuous
 integration services (e.g. Jenkins) to tell PeopleSoft that it should compile
 the branding.
 
+### Example
+
+```javascript
+const { triggerCompile } = require('@highpoint/compile-branding');
+
+triggerCompile({ weblib: 'WEBLIB_H_BRNDNG' }).catch(({ message }) => {
+  console.error(message);
+  process.exit(1);
+});
+```
+
 ### Variables
 
 #### `weblib`
@@ -76,4 +101,4 @@ the branding.
 The PeopleSoft web library that will be called. It needs to have the following
 function:
 
-* IScript_Compile
+- IScript_Compile
