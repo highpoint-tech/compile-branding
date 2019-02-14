@@ -1,0 +1,35 @@
+{
+  "name": "@highpoint/compile-branding",
+  "version": "1.0.0",
+  "description": "Utility to compile HighPoint application branding",
+  "main": "index.js",
+  "repository": "https://github.com/hp-mobile/compile-branding",
+  "author": "HighPoint <support@mhighpoint.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@highpoint/get-ps-token": "^0.1.2",
+    "@highpoint/merge-scss": "^1.0.0",
+    "dotenv": "^6.2.0",
+    "postcss": "^7.0.14",
+    "postcss-url": "^8.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "@highpoint/eslint-config": "^0.1.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
