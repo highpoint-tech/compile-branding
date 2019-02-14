@@ -15,25 +15,6 @@ const {
   HTTP_PASSWORD
 } = process.env;
 
-const prependUrls = cssIn =>
-  postcss([
-    postCssUrl({
-      url: ({ url }) => `https://${PS_HOSTNAME}${url}`
-    })
-  ])
-    .process(cssIn)
-    .then(({ css }) => css);
-
-const checkResponse = response => {
-  const isOK =
-    !Object.keys(response.headers).includes('x-status-code') ||
-    parseInt(response.headers['x-status-code'], 10) < 300;
-
-  if (!isOK) {
-    throw new Error(response.body);
-  }
-};
-
 const compileBranding = async ({ app, inFile, outDir, weblib }) => {
   const baseURI =
     `https://${PS_HOSTNAME}/psc/${PS_ENVIRONMENT}/EMPLOYEE/${PS_NODE}/s/` +
@@ -46,6 +27,25 @@ const compileBranding = async ({ app, inFile, outDir, weblib }) => {
   };
 
   const template = await mergeSCSS(inFile);
+
+  const prependUrls = cssIn =>
+    postcss([
+      postCssUrl({
+        url: ({ url }) => `https://${PS_HOSTNAME}${url}`
+      })
+    ])
+      .process(cssIn)
+      .then(({ css }) => css);
+
+  const checkResponse = response => {
+    const isOK =
+      !Object.keys(response.headers).includes('x-status-code') ||
+      parseInt(response.headers['x-status-code'], 10) < 300;
+
+    if (!isOK) {
+      throw new Error(response.body);
+    }
+  };
 
   const getInstitutions = async () => {
     const response = await request({

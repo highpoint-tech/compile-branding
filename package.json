@@ -2,10 +2,13 @@
   "name": "@highpoint/compile-branding",
   "version": "1.0.0",
   "description": "Utility to compile HighPoint application branding",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/hp-mobile/compile-branding",
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
+  "files": [
+    "src/*.js"
+  ],
   "dependencies": {
     "@highpoint/get-ps-token": "^0.1.2",
     "@highpoint/merge-scss": "^1.0.0",

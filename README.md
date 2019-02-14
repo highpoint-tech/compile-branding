@@ -25,7 +25,13 @@ control, so add it to your `.gitignore` (or similar) file.
 | HTTP_USERNAME  | PS                       |
 | HTTP_PASSWORD  | mysupersecretpassword    |
 
-### Function variables
+# API
+
+## `compileBranding`
+
+Produces a compiled version of the branding in a local directory.
+
+### Variables 
 
 #### `app`
 
@@ -49,9 +55,25 @@ Example: `path.resolve('./dist')`
 
 #### `weblib`
 
-The PeopleSoft web library that will be called. It needs to have two functions:
+The PeopleSoft web library that will be called. It needs to have the following
+functions:
 
-1. IScript_GetVars
-2. IScript_CompileTemplate
+* IScript_GetVars
+* IScript_CompileTemplate
 
 Example: `WEBLIB_H_BRNDNG`
+
+## `triggerCompile`
+
+Triggers branding compilation remotely. This is primarily used by continuous
+integration services (e.g. Jenkins) to tell PeopleSoft that it should compile
+the branding.
+
+### Variables
+
+#### `weblib`
+
+The PeopleSoft web library that will be called. It needs to have the following
+function:
+
+* IScript_Compile
