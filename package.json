@@ -1,6 +1,6 @@
 {
   "name": "@highpoint/compile-branding",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Utility to compile HighPoint application branding",
   "main": "src/index.js",
   "repository": "https://github.com/hp-mobile/compile-branding",
