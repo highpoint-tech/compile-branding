@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Utility to compile HighPoint application branding",
   "main": "src/index.js",
-  "repository": "https://github.com/hp-mobile/compile-branding",
+  "repository": "https://github.com/highpoint-tech/compile-branding",
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
   "files": [
