@@ -13,7 +13,7 @@
     "@highpoint/get-ps-token": "^0.1.2",
     "@highpoint/merge-scss": "^1.0.0",
     "dotenv": "^6.2.0",
-    "postcss": "^7.0.14",
+    "postcss": "^8.2.10",
     "postcss-url": "^8.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
